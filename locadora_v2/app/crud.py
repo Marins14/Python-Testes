@@ -43,7 +43,7 @@ def buscar_filmes(titulo):
     conn = get_connection()
     cur = conn.cursor()
 
-    cur.execute("SELECT * FROM filmes WHERE titulo ILIKE %s;", (f"%{titulo}%",))
+    cur.execute("SELECT * FROM filmes WHERE unaccent(titulo) ILIKE unaccent(%s);", (f"%{titulo}%",))
     result = cur.fetchall()
 
     cur.close()
@@ -51,11 +51,11 @@ def buscar_filmes(titulo):
     return result
 
 
-def remover_filmes(titulo):
+def remover_filmes(titulo, quantos):
     conn = get_connection()
     cur = conn.cursor()
 
-    cur.execute("UPDATE filmes SET quantidade = quantidade - 1 WHERE titulo = %s RETURNING *;", (titulo,))
+    cur.execute("UPDATE filmes SET quantidade = GREATEST(quantidade - %s, 0) WHERE unaccent(titulo) = unaccent(%s) RETURNING *;", (quantos, titulo))
     result = cur.fetchone()
 
     conn.commit()
