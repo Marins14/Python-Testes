@@ -20,3 +20,7 @@ pip install -r requirements.txt
 ```bash
 python3 app/main.py
 ```
+4. Subindo o server
+```bash
+bash run.sh
+``` 
