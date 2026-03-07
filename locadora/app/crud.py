@@ -2,14 +2,14 @@ import logging
 from pathlib import Path
 from .db import get_connection
 
-dir = Path.home() / "Documentos/Python-Testes/locadora/logs/locadora.log"
+#dir = Path.home() / "Documentos/Python-Testes/locadora/logs/locadora.log"
 
-logging.basicConfig(
-    filename=dir,
-    level=logging.INFO,
-    format="%(asctime)s :: [%(levelname)s] :: %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S",
-)
+#logging.basicConfig(
+#    filename=dir,
+#    level=logging.INFO,
+#    format="%(asctime)s :: [%(levelname)s] :: %(message)s",
+#    datefmt="%Y-%m-%d %H:%M:%S",
+#)
 
 # def criar_tabela():
 #     conn = get_connection()
@@ -90,9 +90,9 @@ def inclui_filmes(titulo, quantidade):
 
     cur.close()
     conn.close()
-    logging.info(
-        "O Seguinte dado foi inserido na tabela: {}, {}".format(titulo, quantidade)
-    )
+    #logging.info(
+    #    "O Seguinte dado foi inserido na tabela: {}, {}".format(titulo, quantidade)
+    #)
     return result
 
 
@@ -108,5 +108,5 @@ def excluir_filmes(titulo):
     conn.commit()
     cur.close()
     conn.close()
-    logging.info("O Seguinte filme foi removido da tabela: {}".format(titulo))
+    #logging.info("O Seguinte filme foi removido da tabela: {}".format(titulo))
     return result
