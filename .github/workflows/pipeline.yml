@@ -58,15 +58,6 @@ jobs:
           pip install black
           black --check .
 
-    - name: Build Docker Image
-      working-directory: locadora
-      run: |
-        docker build -t locadora_api:1.0.0 .
-
-    - name: Build Docker
-      working-directory: locadora
-      run: docker build -t marins/locadora-api:1.0 .
-
     - name: Checkout repository
       uses: actions/checkout@v4
 
@@ -80,6 +71,6 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
-        file: .
+        file: ./locadora/
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/locadora-api:1.0
