@@ -70,7 +70,7 @@ jobs:
     - name: Build e Push da Imagem
       uses: docker/build-push-action@v4
       with:
-        context: .
+        context: ./locadora/
         file: ./locadora/Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/locadora-api:1.0
