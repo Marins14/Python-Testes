@@ -11,21 +11,20 @@ from .db import get_connection
 #    datefmt="%Y-%m-%d %H:%M:%S",
 # )
 
-# def criar_tabela():
-#     conn = get_connection()
-#     cur = conn.cursor()
+def criar_tabela():
+    conn = get_connection()
+    cur = conn.cursor()
 
-#     cur.execute("""
-#         CREATE TABLE IF NOT EXISTS filmes (
-#             id SERIAL PRIMARY KEY,
-#             titulo TEXT NOT NULL,
-#             quantidade INT
-#         );
-#     """)
-
-#     conn.commit()
-#     cur.close()
-#     conn.close()
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS filmes (
+            id SERIAL PRIMARY KEY,
+            titulo TEXT NOT NULL,
+            quantidade INT
+        );
+    """)
+    conn.commit()
+    cur.close()
+    conn.close()
 #     logging.info("Tabela criada com sucesso!")
 #     print("Tabela criada com sucesso!")
 

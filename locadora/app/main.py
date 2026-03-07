@@ -9,6 +9,10 @@ from . import crud
 
 app = FastAPI()
 
+@app.on_event("startup")
+def init_table():
+    return crud.criar_tabela()
+
 
 @app.get("/filmes")
 def lista_filmes():
