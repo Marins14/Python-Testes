@@ -62,7 +62,7 @@ def insert_data():
 
     cur.execute(
         "INSERT INTO filmes (titulo, quantidade) VALUES (%s, %s);",
-        ("TESTE", 1)
+        ("teste", 1)
     )
 
     conn.commit()
