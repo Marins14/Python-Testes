@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: locadora-api
-        image: marins14/locadora-api:1.0.0
+        image: marins14/locadora-api:1.0
 
         ports:
         - containerPort: 8000
