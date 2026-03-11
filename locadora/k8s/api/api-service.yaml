@@ -5,7 +5,7 @@ metadata:
   namespace: locadora
 
 spec:
-  type: NodePort
+  type: ClusterIP
 
   selector:
     app: locadora-api
@@ -13,4 +13,3 @@ spec:
   ports:
     - port: 80
       targetPort: 8000
-      nodePort: 30001

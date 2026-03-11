@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locadora-api
+  namespace: locadora
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: locadora-api
+
+  template:
+    metadata:
+      labels:
+        app: locadora-api
+
+    spec:
+      containers:
+        - name: locadora-api
+          image: marins14/locadora-api:1.0
+
+          ports:
+            - containerPort: 8000
+
+          envFrom:
+            - configMapRef:
+                name: locadora-config
+
+            - secretRef:
+                name: postgres-secret
